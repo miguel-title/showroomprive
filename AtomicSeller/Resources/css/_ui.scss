@@ -1,0 +1,696 @@
+﻿/**
+ * AtomicSeller - Interface Client
+ * UI
+ */
+
+html, body {
+	height: 100%;
+}
+body {
+	background-color: #f1f1f1;
+	font-family: 'Roboto', sans-serif;
+}
+
+.elevation-medium { box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); }
+.elevation-high { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+.elevation-low { box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15); }
+.elevation-none { box-shadow: none; }
+
+.inner-shadow { box-shadow: inset 0 3px 3px -2px rgba(0, 0, 0, 0.2); }
+.inner-shadow-medium { box-shadow: inset 0 6px 6px -4px rgba(0, 0, 0, 0.2); }
+
+
+hr {
+	margin: 8px 0;
+}
+
+.form-control {
+    width: 100%;
+	max-width: 450px;
+	padding: .375rem .75rem;
+	color: #55595c;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	box-shadow: none;
+	border-radius: 1px!important;
+
+	&:focus {
+		border-color: #66afe9;
+		outline: 0;
+		box-shadow: 0 3px 9px -4px rgba(102,175,233,.6);
+	}
+	&:invalid {
+		border-color: $red!important;
+		color: $red!important;
+	}
+}
+button, .btn {
+	width: auto;
+	border-radius: 1px;
+}
+.control-label {
+	font-weight: normal;
+}
+.control-value input[type="checkbox"] {
+	margin-top: 10px;
+}
+label.control-label {
+    opacity: 0.7;
+    @include transition-duration(200ms);
+}
+.form-group:hover label.control-label, label.control-label:hover {
+    opacity: 1;
+}
+.input-group .form-control {
+    max-width: 100%;
+}
+.input-group-addon {
+    border-radius: 1px;
+    background-image: none;
+
+    $colors: (
+        info: $blue,
+        warning: $orange,
+        success: $green,
+        danger: $red
+    );
+
+    @each $flavour, $color in $colors {
+        &.bg-#{$flavour} {
+            background-color: rgba($color, 0.2);
+            border: 1px solid rgba($color, 0.4);
+            color: $color;
+
+            &:last-child {
+	            border-left: 0;
+            }
+        }
+    }
+
+    i.mdi {
+        font-size: 24px;
+	    margin: -5px;
+	    vertical-align: middle;
+    }
+}
+
+.btn {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	outline: none;
+	background-image: none;
+	@include transition-duration(150ms);
+	box-shadow: none;
+
+	&:hover, &:active, &:focus, &:active:hover {
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		box-shadow: none;
+	}
+
+	&.btn-secondary-outline {
+		background-color: transparent;
+		text-shadow: none;
+        @extend .primary-color--color;
+        @extend .primary-color--border-color;
+
+		&:hover, &:active, &:active:hover {
+			color: #fff!important;
+			border-color: rgba(0, 0, 0, 0.1);
+			@extend .primary-color--background-color;
+
+			&:active:hover {
+                @extend .primary-color--background-color--darken-10;
+			}
+		}
+	}
+
+	// Override colors
+	$btn-colors: (
+		'primary': $color-accent,
+		//'success': $green,
+		'info': $blue,
+		'warning': $yellow,
+		'danger': $red
+	);
+
+	@each $variant, $color in $btn-colors {
+		&.btn-#{$variant} {
+			background-color: $color;
+
+			&:hover {
+				background-color: darken($color, 5);
+			}
+			&:active {
+				background-color: darken($color, 10);
+			}
+		}
+	}
+
+	i.mdi {
+		line-height: 21px;
+
+		&.position-left {
+			float: left;
+			margin-right: 5px;
+		}
+		&.position-right {
+			float: right;
+			margin-left: 5px;
+		}
+	}
+
+	&.btn-xs i.mdi {
+		font-size: 19px;
+		vertical-align: middle;
+		margin-left: -3px;
+		margin-right: -3px;
+	}
+
+	// Round buttons
+	&.btn-round {
+		text-align: center;
+		overflow: hidden;
+		padding-left: 0;
+		padding-right: 0;
+		border-radius: 50%;
+
+		// btn
+		width: 35px;
+		height: 35px;
+
+		&.btn-lg {
+			width: 40px;
+			height: 40px;
+			font-size: 24px;
+			padding: 0;
+			line-height: 40px;
+		}
+	}
+}
+.form-group-sm .btn {
+	padding: 3px 8px;
+}
+
+.alert {
+	border-radius: 2px;
+	background-image: none;
+	border: 1px solid rgba(#000, 0.2);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+
+	&.alert-info {
+		background-color: #B3E5FC;
+	}
+}
+
+.validation-summary-errors {
+	ul {
+		padding: 0;
+		list-style: none;
+		
+		li {
+			$icon-size: 20px;
+			position: relative;
+			padding: 4px 8px 4px $icon-size+15px;
+			color: #fff;
+			background-color: #D32F2F;
+			@extend .alert;
+
+			&:before {
+				position: absolute;
+				font-size: $icon-size;
+				width: $icon-size;
+				height: $icon-size;
+				top: 50%;
+				left: 8px;
+				margin-top: -$icon-size/2;
+				@include material-icon-onbefore($mdi-alert-circle);
+			}
+		}
+	}
+}
+
+// Hide empty validation messages
+.field-validation-valid:empty {
+	display: none;
+}
+
+.v-space {
+	clear: both;
+	height: 20px;
+}
+
+.card {
+	padding: 8px 15px;
+	margin-bottom: 15px;
+	background-color: #fff;
+	border-radius: 2px;
+	@extend .elevation-low;
+
+	> h3:first-child {
+		margin-top: 0;
+	}
+
+	&.card--transparent {
+		background: transparent;
+		@extend .elevation-none;
+	}
+}
+
+.cards-group {
+	margin-top: 25px;
+	margin-bottom: 25px;
+
+	.card {
+		margin-bottom: 20px;
+	}
+}
+
+.panel.panel-primary {
+	border: 0;
+	margin-bottom: 15px;
+	@extend .elevation-low;
+	border-radius: 2px;
+
+	&.panel-open .panel-heading {
+		border-radius: 2px 2px 0 0;
+	}
+
+	.panel-heading {
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		background-image: none;
+		border-radius: 2px 2px 0 0;
+        @extend .primary-color--background-color;
+
+		color: #fff;
+		color: rgba(255, 255, 255, 0.9);
+		b {
+			font-weight: normal;
+			color: #fff;
+		}
+
+		&.clickable {
+			cursor: pointer;
+			@include transition-duration(150ms);
+            @include transition-timing-function($transition-timing-function);
+
+			&:hover {
+				background-color: darken($orange, 4);
+			}
+		}
+
+		i {
+			font-size: 21px;
+            cursor: pointer;
+            padding: 5px;
+	        margin: -5px;
+            border-radius: 50%;
+            @include transition-duration(150ms);
+            @include transition-property(background-color);
+            
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+		}
+	}
+	.panel-body {
+		@extend .inner-shadow;
+	}
+	.table-wrap {
+		overflow-x: auto;
+	}
+	&.panel-togglable {
+		.panel-heading {
+			@include transition-duration(200ms);
+            @include transition-timing-function($transition-timing-function);
+
+			&:before {
+				float: right;
+				line-height: 20px!important;
+				font-size: 18px!important;
+				@include material-icon-onbefore($mdi-chevron-up);
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		&.panel-togglable-closed {
+			.panel-heading:before {
+				@include material-icon-onbefore($mdi-chevron-down);
+			}
+		}
+	}
+
+    table.table {
+        // Hacky trick to get rid of the white 1px pixel on the right of the table
+        width: 100.12%;
+    }
+}
+
+.material-list {
+	list-style: none;
+	margin: 0;
+	padding: 4px 0;
+
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		line-height: 18px;
+
+		a, span {
+			display: block;
+			color: inherit;
+			text-decoration: none;
+			line-height: 18px;
+			margin: 0;
+			padding: 6px 18px;
+			@include transition-duration(150ms);
+			border-radius: 1px;
+
+			i.mdi {
+				vertical-align: middle;
+				font-size: 1.2em;
+				margin-right: 5px;
+			}
+
+			&:hover {
+				text-decoration: none;
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+		}
+	}
+
+	&.material-list--light {
+		li a {
+			color: #eee;
+
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+		}
+	}
+}
+
+ul.material-list-variant {
+	@extend .material-list;
+
+	li a {
+		&:hover, &.active {
+			@extend .primary-color--color;
+			background-color: transparent;
+	   }
+	}
+}
+
+// Tabs
+.nav-tabs {
+	position: relative;
+	box-shadow: 
+		0 2px 4px -2px rgba(0, 0, 0, 0.3),
+		0 -1px 4px -2px rgba(0, 0, 0, 0.3)
+	;
+	border-bottom: 0;
+
+	li {
+		margin-bottom: 0;
+
+		a {
+			padding-bottom: 8px;
+			margin-right: 0;
+			border-radius: 0;
+			@include transition-duration(150ms);
+
+			&, &:hover {
+				border-left: 0!important;
+				border-top: 0!important;
+				border-right: 0!important;
+				border-bottom: 2px solid transparent;
+			}
+		}
+
+		&.active {
+			a, a:hover, a:focus {
+				font-weight: bold;
+				border-bottom: 2px solid $red;
+			}
+		}
+	}
+}
+.tab-content {
+	padding: 10px 15px;
+	background-color: #eee;
+	border-radius: 0 0 2px 2px;
+}
+
+.content-text {
+	background: #fff;
+	height: auto;
+	padding: 15px 20px;
+	@extend .card;
+	@extend .elevation-low;
+
+	> h2, > h3, > h4 {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	p {
+		text-align: justify;
+	}
+}
+
+.h2-ghost {
+	clear: both;
+	height: 30px;
+}
+
+// Bootstrap form overload
+.form-compact .form-group {
+	margin-bottom: 2px;
+}
+.control-raw {
+	padding-top: 7px;
+}
+.form-group.required {
+	label:after {
+		$star-size: 8px;
+		$star-margin-left: 3px;
+		width: $star-size;
+		font-size: $star-size;
+		line-height: $star-size;
+		margin-right: -$star-size - $star-margin-left;
+		margin-left: $star-margin-left;
+		color: $red;
+		vertical-align: top;
+		margin-top: 2px;
+
+		@include material-icon-onbefore($mdi-star)
+	}
+}
+
+// Upload button (input type="file")
+.input-file {
+	.btn-file {
+		width: 100px;
+		position: relative;
+		overflow: hidden;
+
+		input[type=file] {
+			position: absolute;
+			top: 0;
+			right: 0;
+			min-width: 100%;
+			min-height: 100%;
+			font-size: 0;
+			text-align: right;
+			opacity: 0;
+			outline: none;
+			background: white;
+			cursor: inherit;
+			display: block;
+		}
+	}
+
+	input[type=text] {
+		min-width: 0;
+		width: 281px;
+	}
+}
+
+.text {
+	padding: 10px 15px;
+}
+
+.no-padding {
+	padding: 0;
+}
+.no-margin {
+	margin: 0;
+}
+.no-top-margin {
+	margin-top: 0;
+}
+.no-bottom-margin {
+	margin-bottom: 0;
+}
+.vertical-align-middle {
+    vertical-align: middle!important;
+}
+
+.datepicker {
+	.dow {
+		cursor: default;
+	}
+
+	.day {
+		cursor: pointer;
+		@include transition-duration(200ms);
+		
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.08);
+		}
+	}
+
+	.table-condensed {
+        @include user-select(none);
+
+        th {
+		    padding-top: 0;
+		    padding-bottom: 0;
+	    }
+        th, td {
+            transition-duration: 200ms;
+            transition-property: background;
+        }
+    }
+
+    table tr td.disabled, table tr td.disabled:hover {
+        color: #ccc;
+    }
+}
+.control-value {
+    position: relative;
+
+    .datepicker {
+        padding-left: 28px;
+
+        &:hover, &:active, &:focus {
+            &+.mdi-calendar {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .mdi-calendar {
+        position: absolute;
+	    top: 9px;
+	    left: 19px;
+	    font-size: 18px;
+	    opacity: 0.4;
+        @include transition-duration(200ms);
+    }
+}
+
+.modal-content {
+	border: 0;
+	border-radius: 2px;
+	@extend .elevation-high;
+
+	.modal-footer {
+		padding: 10px 15px;
+		background-color: #f5f5f5;
+		border-top: 1px solid #ddd;
+	}
+}
+
+.pagination-wrap {
+	$border-radius: 16px;
+	text-align: center;
+
+	.pagination {
+		> li {
+			> a, > span {
+				padding: 5px 11px;
+				margin: 0 1px;
+				border: 0;
+				transition-duration: 150ms;
+				border-radius: $border-radius;
+				background-color: transparent;
+
+				&, &:hover, &:focus {
+					color: #999999;
+				}
+			}
+
+			> a:hover {
+				background-color: rgba(#000, 0.07);
+			}
+
+			&:first-child {
+				> a, > span {
+					border-bottom-left-radius: $border-radius;
+					border-top-left-radius: $border-radius;
+				}
+			}
+			&:last-child {
+				> a, > span {
+					border-bottom-right-radius: $border-radius;
+					border-top-right-radius: $border-radius;
+				}
+			}
+		}
+
+		> .disabled {
+			opacity: 0.7;
+
+			> span, > a {
+				&, &:hover, &:focus {
+					cursor: default;
+					background: transparent;
+				}
+			}
+		}
+
+		> .active {
+			> span, > a {
+				background-color: $color-accent;
+				@extend .elevation-low;
+
+				&:hover, &:focus {
+					background-color: darken($color-accent, 5);
+					@extend .elevation-medium;
+				}
+				&, &:hover, &:focus {
+					color: #ffffff;
+				}
+			}
+		}
+	}
+}
+
+.debug {
+    background: #002B36;
+	color: rgba(255, 255, 255, 0.9);
+	border-color: #FF5722;
+	font-family: monospace;
+}
+
+@media (min-width: 768px) {
+    .dl-horizontal {
+        dt {
+            width: 50%;
+        }
+        dd {
+            margin-left: calc(50% + 30px);
+        }
+    }
+}
+
+.visually-hidden {
+    visibility: hidden;
+}

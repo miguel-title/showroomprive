@@ -1,0 +1,61 @@
+﻿@using AtomicSeller.Helpers
+@using AtomicSeller.Helpers.Navigation
+@{
+    var sessionBag = SessionBag.Instance;
+    var navigationHelper = NavigationHelper.Instance;
+    var breadcrumb = navigationHelper.GetBreadcrumb();
+}
+
+<ul class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Home")" class="breadcrumb-root"><i class="mdi mdi-home-variant"></i> AtomicSeller</a></li>
+
+    @if (breadcrumb.Count > 0)
+    {
+        var lastItem = breadcrumb.Last();
+        foreach (var item in breadcrumb)
+        {
+            <li class="divider">
+                <i class="mdi mdi-chevron-right"></i>
+            </li>
+
+            var menuItem = item as MenuItem;
+
+            <li @if (lastItem == item && ViewBag.ActiveMenuItem == null) { <text>class="active"</text> }>
+                @if (menuItem != null)
+                {
+                    <a href="@if (menuItem.Controller != null) { @Url.Action(menuItem.Action, menuItem.Controller); }">
+                        <i class="mdi @menuItem.Icon"></i>
+                        @menuItem.Label
+                    </a>
+                }
+                else
+                {
+                    <a href="#"><i class="mdi @item.Icon"></i> @item.Label</a>
+                }
+            </li>
+        }
+
+        if (ViewBag.ActiveMenuItem != null)
+        {
+            <li class="divider">
+                <i class="mdi mdi-chevron-right"></i>
+            </li>
+
+            <li class="active">
+                <a href="#">
+                    <i class="mdi @lastItem.Icon"></i>
+                    @ViewBag.Title
+                </a>
+            </li>
+        }
+    }
+    else
+    {
+        <li class="divider">
+            <i class="mdi mdi-chevron-right"></i>
+        </li>
+        <li class="active">
+            <a href="#">@ViewBag.Title</a>
+        </li>
+    }
+</ul>

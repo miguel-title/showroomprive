@@ -1,0 +1,80 @@
+﻿// Bootstrap documentation callouts
+// From http://cpratt.co/twitter-bootstrap-callout-css-styles/
+
+.bs-callout {
+	padding: 20px;
+	margin: 20px 0;
+	border-style: solid;
+	border-width: 0 0 0 0;
+    border-color: $blue;
+	background: #fff;
+	border-radius: 2px;
+	@extend .elevation-low;
+
+    &.debug {
+        @extend .debug;
+    }
+}
+.bs-callout h4 {
+	margin-top: 0;
+	margin-bottom: 5px;
+    //@extend .primary-color--color;
+}
+.bs-callout p:last-child {
+	margin-bottom: 0;
+}
+.bs-callout code {
+	border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+	margin-top: -5px;
+}
+.bs-callout-default {
+	background: #777;
+    color: #777;
+}
+.bs-callout-default h4 {
+	color: #777;
+}
+.bs-callout-primary {
+	background: #428bca;
+    color: #ffffff;
+}
+.bs-callout-primary h4 {
+	color: #ffffff;
+}
+.bs-callout-success {
+	background: #5cb85c;
+    color: #ffffff;
+}
+.bs-callout-success h4 {
+	color: #ffffff;
+}
+.bs-callout-danger {
+	background: #d9534f;
+    color: #ffffff;
+}
+.bs-callout-danger h4 {
+	color: #ffffff;
+}
+.bs-callout-error {
+	background: #d9534f;
+    color: #ffffff;
+}
+.bs-callout-error h4 {
+	color: #ffffff;
+}
+.bs-callout-warning {
+	background: #f0ad4e;
+    color: #ffffff;
+}
+.bs-callout-warning h4 {
+	color: #ffffff;
+}
+.bs-callout-info {
+	background: #5bc0de;
+    color: #ffffff;
+}
+.bs-callout-info h4 {
+	color: #ffffff;
+}

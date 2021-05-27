@@ -1,0 +1,9 @@
+@using AtomicSeller.Helpers.Razor
+@model object
+
+@{
+    ViewBag.value = string.Format(TemplatesConsts.CurrencyFormat, Model);
+    ViewBag.valueClass = "text-number";
+}
+
+@Html.Partial( "~/Views/Shared/DisplayTemplates/DisplayBase.cshtml")

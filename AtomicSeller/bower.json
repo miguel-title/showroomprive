@@ -1,0 +1,12 @@
+{
+  "name": "AtomicSeller",
+  "description": "",
+  "main": "",
+  "license": "",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "bourbon": "^4.2.7",
+    "materialdesignicons-scss-variables": "^1.0.3"
+  }
+}

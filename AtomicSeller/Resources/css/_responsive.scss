@@ -1,0 +1,100 @@
+﻿/**
+ * AtomicSeller - Interface Client
+ * Responsive
+ */
+
+@mixin nav-shown {
+    nav {
+	    @include transform(translate($nav-width, 0));
+    }
+}
+@mixin nav-hidden {
+    nav {
+        @include transform(translate(0, 0));
+    }
+    .content-wrap {
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+// Default behavior
+.nav-content-wrap {
+    @include nav-shown;
+
+    nav {
+        left: -#{$nav-width};
+    }
+
+    .content-wrap {
+        @include transition-duration(350ms);
+        @include transition-timing-function($transition-timing-function);
+    }
+}
+
+
+// Depending on media, the behavior changes
+@media (max-width: 767px) {
+	// Navigation
+	.nav-content-wrap {
+        @include nav-hidden;
+	}
+
+	.nav-fullmask {
+		position: fixed;
+		z-index: 9;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(#000, 0.3);
+		@include transition-duration(150ms);
+        @include transition-timing-function($transition-timing-function);
+	}
+
+    header.header {
+        .header-left .user-login {
+            display: none;
+        }
+    }
+}
+
+// Define overrides used in JS
+body.nav-shown {
+    @include nav-shown;
+}
+body.nav-hidden {
+    @include nav-hidden;
+}
+
+// Print
+@media print {
+    * {
+        @include transition(none);
+    }
+
+    .tooltip {
+        display: none!important;
+    }
+
+    .nav-content-wrap {
+        nav {
+            display: none;
+        }
+
+        .content-wrap {
+            width: 100%;
+            margin-left: 0;
+
+            header.header {
+                display: none;
+            }
+
+            .content header {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@model int?
+
+@{
+    ViewBag.htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
+    ViewBag.htmlAttributes["type"] = "number";
+}
+
+@Html.Partial( "~/Views/Shared/EditorTemplates/TextBoxBase.cshtml")

@@ -1,0 +1,29 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using AtomicSeller.Helpers.Razor.HtmlExtensions
+@using AtomicSeller.Resources
+@model AtomicSeller.ViewModels.LoginViewModel
+
+@{
+    Layout = "~/Views/Partial/_Layout-Login.cshtml";
+    ViewBag.Title = Local.TranslatedMessage("MESNULAuthentication");
+}
+
+@using (Html.BeginForm("Login", "Account", null, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <h3>@ViewBag.Title</h3>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "")
+
+    //@Html.TextBoxFor(m => m.Login, new { @class = "form-control", placeholder = Resources.Username })
+
+    @Html.TextBoxFor(m => m.Login, new { @class = "form-control", placeholder = Local.TranslatedMessage("MESNULUser") })
+    
+
+    //@Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Resources.Password })
+    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = Local.TranslatedMessage("MESNULPassword") })
+
+    //@Html.SubmitWrap(Resources.Connect, SubmitWrapExtension.DefaultIcon, SubmitWrapExtension.Position.PullRight, SubmitWrapExtension.IconPosition.Right)
+    @Html.SubmitWrap(Local.TranslatedMessage("MESNULConnect"), SubmitWrapExtension.DefaultIcon, SubmitWrapExtension.Position.PullRight, SubmitWrapExtension.IconPosition.Right)
+
+}

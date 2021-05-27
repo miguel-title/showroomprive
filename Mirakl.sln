@@ -1,0 +1,130 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirakl", "AtomicSeller\Mirakl.csproj", "{58DAC1FC-6937-4858-AC57-C2A33337C05C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D53D9901-5FE3-4C32-BDDA-33B5FEDA830F}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		FinalRelease|Any CPU = FinalRelease|Any CPU
+		FinalRelease|x64 = FinalRelease|x64
+		FinalRelease|x86 = FinalRelease|x86
+		Guadeloupe|Any CPU = Guadeloupe|Any CPU
+		Guadeloupe|x64 = Guadeloupe|x64
+		Guadeloupe|x86 = Guadeloupe|x86
+		Guyane|Any CPU = Guyane|Any CPU
+		Guyane|x64 = Guyane|x64
+		Guyane|x86 = Guyane|x86
+		JCC|Any CPU = JCC|Any CPU
+		JCC|x64 = JCC|x64
+		JCC|x86 = JCC|x86
+		LaPrevoyance|Any CPU = LaPrevoyance|Any CPU
+		LaPrevoyance|x64 = LaPrevoyance|x64
+		LaPrevoyance|x86 = LaPrevoyance|x86
+		Martinique|Any CPU = Martinique|Any CPU
+		Martinique|x64 = Martinique|x64
+		Martinique|x86 = Martinique|x86
+		MCA|Any CPU = MCA|Any CPU
+		MCA|x64 = MCA|x64
+		MCA|x86 = MCA|x86
+		Mutest|Any CPU = Mutest|Any CPU
+		Mutest|x64 = Mutest|x64
+		Mutest|x86 = Mutest|x86
+		Podor|Any CPU = Podor|Any CPU
+		Podor|x64 = Podor|x64
+		Podor|x86 = Podor|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		Reunion|Any CPU = Reunion|Any CPU
+		Reunion|x64 = Reunion|x64
+		Reunion|x86 = Reunion|x86
+		Roederer|Any CPU = Roederer|Any CPU
+		Roederer|x64 = Roederer|x64
+		Roederer|x86 = Roederer|x86
+		SrvTest3|Any CPU = SrvTest3|Any CPU
+		SrvTest3|x64 = SrvTest3|x64
+		SrvTest3|x86 = SrvTest3|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Debug|x64.Build.0 = Debug|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Debug|x86.Build.0 = Debug|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.FinalRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.FinalRelease|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.FinalRelease|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.FinalRelease|x64.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.FinalRelease|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.FinalRelease|x86.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Guadeloupe|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Guadeloupe|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Guadeloupe|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Guadeloupe|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Guyane|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Guyane|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Guyane|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Guyane|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.JCC|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.JCC|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.JCC|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.JCC|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.LaPrevoyance|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.LaPrevoyance|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.LaPrevoyance|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.LaPrevoyance|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Martinique|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Martinique|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Martinique|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Martinique|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.MCA|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.MCA|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.MCA|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.MCA|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Mutest|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Mutest|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Mutest|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Mutest|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Podor|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Podor|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Podor|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Podor|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Release|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Release|x64.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Release|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Release|x86.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Reunion|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Reunion|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Reunion|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Reunion|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Roederer|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Roederer|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Roederer|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.Roederer|x86.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.SrvTest3|Any CPU.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.SrvTest3|Any CPU.Build.0 = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.SrvTest3|x64.ActiveCfg = Release|Any CPU
+		{58DAC1FC-6937-4858-AC57-C2A33337C05C}.SrvTest3|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {167A9B0E-83BF-4B68-BF6D-251A36F1CE23}
+	EndGlobalSection
+EndGlobal

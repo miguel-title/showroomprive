@@ -1,0 +1,16 @@
+@using AtomicSeller.Helpers.Razor
+@model object
+
+@if (EnumHelper.IsValidForEnumHelper(ViewData.ModelMetadata))
+{
+    // Display Enum using same names (from [Display] attributes) as in editors
+    foreach (SelectListItem item in EnumHelper.GetSelectList(ViewData.ModelMetadata, (Enum)Model))
+    {
+        if (item.Selected)
+        {
+            ViewBag.value = item.Text ?? item.Value;
+        }
+    }
+}
+
+@Html.Partial( "~/Views/Shared/DisplayTemplates/DisplayBase.cshtml")

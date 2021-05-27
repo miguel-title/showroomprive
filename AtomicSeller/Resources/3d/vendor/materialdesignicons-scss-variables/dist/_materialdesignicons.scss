@@ -1,0 +1,40 @@
+/**
+ * MaterialDesignIcons-SCSS-Variables
+ * https://github.com/chteuchteu/MaterialDesignIcons-SCSS-Variables
+ */
+
+.mdi {
+	display: inline-block;
+	font: normal normal normal 24px/1 "Material Design Icons";
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
+}
+
+@mixin material-icon($icon) {
+	@extend .mdi;
+
+	&:before {
+		content: $icon;
+	}
+}
+
+@mixin material-icon-onbefore($icon) {
+    @extend .mdi;
+    content: $icon;
+}
+
+@function char($character-code) {
+	@if function-exists("selector-append") {
+		@return unquote("\"\\#{$character-code}\"");
+	}
+
+	@if "\\#{'x'}" == "\\x" {
+		@return str-slice("\x", 1, 1) + $character-code;
+	}
+	@else {
+		@return #{"\"\\"}#{$character-code + "\""};
+	}
+}

@@ -1,0 +1,56 @@
+﻿/**
+ * AtomicSeller - Interface Client
+ * Variables SCSS
+ */
+
+// Colors
+$blue:              #004391;
+$blue-light:        #428bca;
+$yellow:            #F8B900;
+$orange:            #F17816;
+$red:               #D11318;
+$green:             #4CAF50;
+$color-accent:      #616161;
+$color-ccp-blue:	#0071b9;
+
+$primary-colors: #0083C0, #0083C0;
+$default-primary-color: nth($primary-colors, 1);
+
+// Dimensions
+$toolbar-height: 	46px;
+$nav-width: 		250px;
+
+// Animations
+$transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+// Define primary color mixin
+// Define default value
+.primary-color--background-color {
+    background-color: $default-primary-color;
+}
+.primary-color--background-color--darken-10 {
+    background-color: darken($default-primary-color, 10);
+}
+.primary-color--border-color {
+    border-color: $default-primary-color;
+}
+.primary-color--color {
+    color: $default-primary-color;
+}
+
+@each $color in $primary-colors {
+    body[data-primary-color="#{$color}"] {
+        .primary-color--background-color {
+            background-color: $color;
+        }
+        .primary-color--background-color--darken-10 {
+            background-color: darken($color, 10);
+        }
+        .primary-color--border-color {
+            border-color: $color;
+        }
+        .primary-color--color {
+            color: $color;
+        }
+    }
+}

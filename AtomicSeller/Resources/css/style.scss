@@ -1,0 +1,133 @@
+﻿/**
+ * AtomicSeller - Interface Client
+ * Fichier CSS principal
+ */
+
+@import '../3d/vendor/bourbon/app/assets/stylesheets/bourbon';
+@import 'vars';
+
+@import '../3d/vendor/materialdesignicons-scss-variables/dist/materialdesignicons';
+@import '../3d/vendor/materialdesignicons-scss-variables/dist/materialdesignicons-vars-char';
+
+@import 'ui';
+
+@import 'layout';
+@import 'responsive';
+@import 'component-table';
+@import 'component-callout';
+@import 'loader';
+@import 'joyride';
+
+@import 'page-specific';
+
+.inline {
+    display: inline;
+}
+
+.info-message {
+	display: block;
+	text-align: center;
+	cursor: default;
+	-webkit-user-select: none;
+	opacity: 0.6;
+
+	i {
+		vertical-align: middle;
+		margin-right: 10px;
+	}
+}
+.info-message--huge {
+	@extend .info-message;
+	margin: 20px 0;
+	font-size: 19px;
+
+	i {
+		font-size: 25px;
+	}
+}
+.info-message--medium {
+	@extend .info-message;
+	margin: 0;
+	font-size: 15px;
+
+	i {
+		font-size: 20px;
+	}
+}
+
+ul.colors {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li span {
+		width: 1em;
+		height: 1em;
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 5px;
+		border: 1px solid rgba(0, 0, 0, 0.2);
+		border-radius: 2px;
+	}
+}
+
+.filters.form-inline {
+	> * {
+		vertical-align: middle;
+	}
+
+	label, .controls {
+		display: inline-block;
+		float: none;
+		width: auto;
+	}
+	label {
+		margin-bottom: 0;
+		margin-right: 5px;
+	}
+	.form-control+label {
+		margin-left: 15px;
+	}
+	.controls input {
+		min-width: 0;
+		width: 160px;
+	
+		&[data-date] {
+			width: 100px;
+		}
+	}
+	.btn {
+		margin-left: 10px;
+	}
+}
+
+.modal .confirmation-message {
+	@extend .info-message--huge;
+	text-align: left;
+	font-size: 19px;
+	opacity: 1;
+
+	.modal-body-content {
+		display: inline-block;
+
+		i.mdi {
+			margin-left: 20px;
+			color: #616161;
+			font-size: 30px;
+			float: left;
+		}
+
+		span {
+			margin-left: 4em;
+			display: block;
+		}
+	}
+}
+
+h2 + .btn {
+	margin-left: 20px;
+}
+
+.no-padding-top {
+    padding-top: 0;
+}

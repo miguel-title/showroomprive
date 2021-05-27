@@ -1,0 +1,8 @@
+@model string
+
+@{
+    ViewBag.htmlAttributes = (RouteValueDictionary) ViewBag.htmlAttributes ?? new RouteValueDictionary();
+    ViewBag.htmlAttributes["type"] = "email";
+}
+
+@Html.Partial( "~/Views/Shared/EditorTemplates/TextBoxBase.cshtml")

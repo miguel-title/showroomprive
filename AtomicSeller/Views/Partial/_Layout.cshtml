@@ -1,0 +1,166 @@
+﻿@using System.Threading
+@using AtomicSeller.Helpers
+@using AtomicSeller.Helpers.Navigation
+@using AtomicSeller.Helpers.Razor
+@using AtomicSeller.Resources
+@{
+    NavigationHelper.Init(ViewContext.RouteData, TempData);
+
+    ViewBag.PageCol = ViewBag.PageCol ?? HtmlConsts.Dimens.DefaultContentPageCol;
+    ViewBag.PageColOffset = ViewBag.PageColOffset ?? HtmlConsts.Dimens.DefaultContentPageColOffset;
+    ViewBag.ShowH2 = ViewBag.ShowH2 ?? true;
+    ViewBag.CSSClass = ViewBag.CSSClass ?? "default";
+    var visiteGuideeAttr = ViewBag.VisiteGuidee != null ? "data-visite-guidee=\"" + ViewBag.VisiteGuidee + "\"" : null;
+
+    if (ViewBag.ActiveMenuItem != null)
+    {
+        NavigationHelper.Instance.SetActiveMenuItem(ViewBag.ActiveMenuItem);
+    }
+
+    if (!SessionBag.IsProd && ViewBag.Title == null)
+    {
+        FlashMessage.Flash(TempData, new FlashMessage("Il est recommandé de spécifier <code>ViewBag.Title</code>", FlashMessageType.Warning, "Titre manquant", true));
+    }
+
+    var primaryColor = "#0083C0";
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@ViewBag.Title - AtomicSeller</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/1.6.50/css/materialdesignicons.min.css">
+
+    <link rel="stylesheet" href="@Url.Content("/Resources/3d/css/bootstrap-datepicker3.min.css")">
+    <link rel="stylesheet" href="@Url.Content("/Resources/3d/css/flag-icon.min.css")">
+    <link rel="stylesheet" href="@Url.Content("/Resources/css/style.css")">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,300" rel="stylesheet" type="text/css">
+
+    @RenderSection("head", required: false)
+    @Html.Partial( "~/Views/Partial/_Favicons.cshtml")
+    <meta name="description" content="AtomicSeller" />
+</head>
+<body class="page-@ViewBag.CSSClass" data-primary-color="@primaryColor" @Html.Raw(visiteGuideeAttr)>
+<div class="classLoader">
+    <div class="nav-content-wrap">
+        <nav>
+            <hr/>
+            @Html.Partial("~/Views/Partial/_Menu.cshtml")
+        </nav>
+        <div class="content-wrap">
+            <div class="content-watermark hidden-print"></div>
+            <style scoped>.content-watermark { background-image: url('@Url.Content("/Resources/img/LogoAtomic.gif")'); }</style>
+
+            <header class="header">
+                <div class="header-left">
+                    <a href="#" class="action toggle-menu">
+                        <i class="mdi mdi-menu"></i>
+                    </a>                                       
+                </div>
+
+
+                <!-- TOP MENU -->
+
+                <div class="header-right">
+
+
+                    <div class="actions">
+                        @if (!SessionBag.IsProd && Request.QueryString.AllKeys.Length > 0)
+                        {
+                            <div class="dropdown pull-left" data-toggle="tooltip" data-placement="left" title="Debug queryString">
+                                <a href="#" class="action" data-toggle="dropdown">
+                                    <i class="mdi mdi-bug"></i>
+                                </a>
+                                <ul class="dropdown-menu debug">
+                                    @foreach (var key in Request.QueryString.AllKeys)
+                                    {
+                                        <li>@key = @Request.QueryString[key]</li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                    
+
+                </div>
+            </header>
+            <div class="clearfix"></div>
+            <div class="content">
+                <div id="content" class="container-fluid">
+                    <header>
+                        @Html.Partial( "~/Views/Partial/_FlashMessages.cshtml")
+                    </header>
+                    <div class="row">
+                        <div class="col-md-@ViewBag.PageCol col-md-offset-@ViewBag.PageColOffset">
+                            @if (ViewBag.ShowH2)
+                            {
+                                <h2>@ViewBag.Title</h2>
+                            }
+                            else
+                            {
+                                <div class="h2-ghost"></div>
+                            }
+
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-fullmask" style="display: none;"></div>
+    <div id="confirmModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                    <div class="confirmation-message">
+                        <div class="modal-body-content">
+                            <i class="mdi mdi-alert-circle"></i>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-secondary-outline" data-dismiss="modal">
+                        <i class="mdi mdi-close"></i> @Local.TranslatedMessage("MESNULCancel")
+                    </a>
+                    <a class="btn btn-primary modal-confirm-button" href="#">
+                        <i class="mdi mdi-check"></i> @Local.TranslatedMessage("MESNULYes")
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="loader-wrapper">
+    <div id="loader"></div>
+
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+@{ 
+    // Html.Partial("_VisiteGuidee") 
+   
+}
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.26.6/js/jquery.tablesorter.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.27.7/js/jquery.tablesorter.widgets.min.js"></script>
+@Scripts.Render("~/bundles//js3d")
+@Scripts.Render("~/bundles//javascript")
+@RenderSection("scripts", required: false)
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>

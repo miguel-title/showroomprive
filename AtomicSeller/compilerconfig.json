@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Resources/css/style.css",
+    "inputFile": "Resources/css/style.scss"
+  },
+  {
+    "outputFile": "Resources/css/authentification.css",
+    "inputFile": "Resources/css/authentification.scss"
+  }
+]
