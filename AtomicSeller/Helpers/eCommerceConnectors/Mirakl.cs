@@ -94,9 +94,21 @@ namespace AtomicSeller.Helpers.eCommerceConnectors
 
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             var result = "";
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            try
             {
-                result = streamReader.ReadToEnd();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
+
+            }
+            catch (WebException Wex)
+            {
+                string toto = Wex.Message;
+            }
+            catch (Exception ex)
+            {
+                string toto = ex.Message;
             }
             return result;
         }
@@ -203,6 +215,7 @@ namespace AtomicSeller.Helpers.eCommerceConnectors
             jsonParam = JsonConvert.SerializeObject(request).ToString();
             string strResult = string.Empty;
             string GetLabel_API_URL = API_LABEL_BASE_URL + "/" + Token + "/api/label/v1/create";
+            
             try
             {
                 strResult = new Mirakl().SendPostHttpRequest(GetLabel_API_URL, jsonParam);

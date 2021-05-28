@@ -31,7 +31,7 @@ namespace AtomicSeller.Controllers
             string strCarrierName = "UPS";
             string strCarrierUrl = "https://wwwapps.ups.com/WebTracking/track?track=yes";
             string strTrackingNumber = "1Z2356F1ZJ98L9733M5";
-            string orderId = "206301877-A";// 206301878-A 206301879-A
+            string orderId = "206272578-A";// 206301878-A 206301879-A
 
             PutTrackingNumberResponse _Result = new Mirakl().Mirakl_PutTrackingNumber(orderId, strCarrierCode, strCarrierName, strCarrierUrl, strTrackingNumber);
 
@@ -46,7 +46,8 @@ namespace AtomicSeller.Controllers
         [HttpGet]
         public ActionResult GetLabel()
         {
-            string orderId = "206301877-A";// 206301878-A 206301879-A
+            // 206301877-A 206301878-A 206301879-A 206301881-A 206301880-A
+            string orderId = "206301878-A";
             GetLabelResponse _Result = new Mirakl().Mirakl_GetLabel(orderId);
 
             if (string.IsNullOrEmpty(_Result.Header.ReturnMessage))
